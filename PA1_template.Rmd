@@ -3,6 +3,7 @@ title: "Assignment Week 2 Reproducible Research"
 author: "TG"
 date: "Thursday, May 19, 2016"
 output: html_document
+keep_md: true
 ---
 
 This is an R Markdown document. 
@@ -147,7 +148,7 @@ steps_sum_day<-tbl_activity0 %>%  group_by(date) %>%  summarise(steps_total = su
 
 *Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.*
 
-```{r, echo=FALSE}
+```{r, echo=TRUE}
 hist(steps_sum_day$steps_total, xlab = "sum of steps per day", main = "histogram of steps per day")
 ```
 
@@ -308,7 +309,7 @@ new_activity<- new_activity %>%select(  steps,    date,    interval) %>%    arra
 
 ### Calculate the total number of steps taken per day using the data with filled NA's
 
-```{r}
+```{r, echo=TRUE}
 steps_new_day<-new_activity %>%  group_by(date) %>% select(steps) %>% summarise(steps_total = sum(steps))
 ```
 
@@ -321,7 +322,7 @@ steps_new_day<-new_activity %>%  group_by(date) %>% select(steps) %>% summarise(
 
 
 
-```{r, echo=FALSE}
+```{r,  echo=TRUE}
 hist(steps_new_day$steps_total, xlab = "sum of steps per day", main = "histogram of steps per day (na are replaced)")
 ```
 
@@ -429,7 +430,7 @@ The impact on the median is small
 
 
 
-```{r}
+```{r, echo=TRUE}
 
 
 
@@ -465,7 +466,7 @@ weekend_steps_mean<-new_activity_weekend %>%     group_by(interval) %>%     summ
 
 
 
-```{r}
+```{r, echo=TRUE}
 
 
 par(mfrow=c(2,1))
